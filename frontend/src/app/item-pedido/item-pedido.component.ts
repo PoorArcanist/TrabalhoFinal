@@ -20,7 +20,7 @@ export class ItemPedidoComponent implements OnInit {
    public valor = '';
    public quantidade = 0;
    public seila = '';
-   public pedido_id_pedido:0;
+   public pedido:0;
 
    constructor(private itempedidoService: ItemPedidoService,private modalService: BsModalService ) { }
 
@@ -45,7 +45,7 @@ export class ItemPedidoComponent implements OnInit {
      itempedido.valor = this.valor;
      itempedido.quantidade = this.quantidade;
      itempedido.seila = this.seila;
-     itempedido.pedido_id_pedido = this.pedido_id_pedido;
+     itempedido.pedido = this.pedido;
 
      this.itempedidoService.addItemPedido(itempedido)
        .subscribe(res => {
