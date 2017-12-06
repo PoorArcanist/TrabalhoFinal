@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body>
+<a class="btn btn-info" href="/menu">Voltar</a>
+<div class="container">
+  <h2>Listagem</h2>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Numero do pedido</th>
+        <th>Cliente</th>
+        <th>Vendedor</th>
+        <th>quantidade de produtos</th>
+        <th>Valor</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pedido of pedidos">
+        <td>
+          {{pedido.id_pedido}}
+        </td>
+        <td>
+          {{pedido.contato}}
+        </td>
+        <td>
+          {{pedido.usuario}}
+        </td>
+
+        <td>
+          {{pedido.qtd_produto}}
+        </td>
+        <td>
+          R$ {{pedido.valor_total}}
+        </td>
+
+          <button (click)="apagarPedido(pedido.id_pedido)" (click)="sucess()" class=" btn-danger">Apagar</button>
+
+
+          <button type="button" class="btn btn-default" (click)="carregaTodosItemsPed(pedido.id_pedido)"  (click)="openModal(itempedido)">Item pedido</button>
+
+          <ng-template #itempedido>
+            <div class="modal-header">
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table table-hover">
+                <h1>Item do pedido</h1>
+                <tr>
+
+                  <td>
+                    <b>Produto</b>
+                  </td>
+                  <td>
+                    <b>tipo</b>
+                  </td>
+                  <td>
+                    <b>valr </b>
+                  </td>
+                  <td>
+                    <b>quantidade</b>
+                  </td>
+                  <td>
+                    <b>codigo</b>
+                  </td>
+                </tr>
+
+                <tr *ngFor="let itempedido of itempedidos">
+
+
+                  <td>
+                    {{itempedido.nome}}
+                  </td>
+                  <td>
+                    {{itempedido.tipo}}
+                  </td>
+                  <td>
+                    {{itempedido.valor}}
+                  </td>
+                  <td>
+                    {{itempedido.quantidade}}
+                  </td>
+                  <td>
+                    {{itempedido.seila}}
+                  </td>
+                </tr>
+            </table>
+            </div>
+          </ng-template>
+
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+</body>
+</html>
